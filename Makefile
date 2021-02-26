@@ -9,21 +9,21 @@ HOMEWORK = 3
 build: cmds.o elfs.o game.o main.o map.o utils.o
 	$(CC) $(CFLAGS) -o $(EXE) $^
 
-cmds.o: cmds.c
+cmds.o: src/cmds.c
 	$(CC) $(CFLAGS) -c $^	
-elfs.o: elfs.c
+elfs.o: src/elfs.c
 	$(CC) $(CFLAGS) -c $^	
-game.o: game.c
+game.o: src/game.c
 	$(CC) $(CFLAGS) -c $^
-main.o: main.c
+main.o: src/main.c
 	$(CC) $(CFLAGS) -c $^
-map.o: map.c
+map.o: src/map.c
 	$(CC) $(CFLAGS) -c $^
-utils.o: utils.c
+utils.o: src/utils.c
 	$(CC) $(CFLAGS) -c $^
 
-pack: Makefile README
-	zip -q -9 "$(GROUP)_$(AUTHOR)_Tema$(HOMEWORK).zip" *.c *.h $^
+pack: Makefile README.md
+	zip -q -9 "$(GROUP)_$(AUTHOR)_Tema$(HOMEWORK).zip" src/ $^
 
 clean_objects:
 	rm -f *.o
